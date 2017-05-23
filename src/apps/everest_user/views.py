@@ -4,6 +4,9 @@ from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 def everest_login(request):
@@ -14,7 +17,8 @@ def everest_login(request):
         if login_form.is_valid():
             username = login_form.cleaned_data.get("email_id", None)
             password = login_form.cleaned_data.get("password", None)
-            user = authenticate(username=username, password=password)
+            user_from_db = User.objects.get(username__iexact=username)
+            user = authenticate(username=user_from_db.username, password=password)
             if user:
                 login(request, user)
                 return HttpResponseRedirect(reverse_lazy('home:index'))

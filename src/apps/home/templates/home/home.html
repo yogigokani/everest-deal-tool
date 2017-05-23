@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block body_outside_container %}
+{% block header %}
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -11,12 +11,27 @@
             <li class="active"><a href="{% url 'home:index' %}">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'user:logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            <li><a href="{% url 'user:logout' %}"><span class="glyphicon glyphicon-log-in"></span> logout</a></li>
         </ul>
     </div>
 </nav>
-{% endblock body_outside_container%}
+{% endblock header%}
 
 {% block body %}
     <h1>Hello {{request.user.get_full_name }}!</h1>
+    <div class="container-fluid project-lookup-container">
+        <div class="row">
+            <div class="col-md-2">
+                Project ID
+            </div>
+            <div class="col-md-9 ui-widget">
+                <input id="tags">
+            </div>
+        </div>
+        {{data}}
+    </div>
 {% endblock body %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+{% endblock js%}

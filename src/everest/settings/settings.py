@@ -25,7 +25,7 @@ SECRET_KEY = 'axleylw20zk5e$=i(zl^*%y0v3*p*@=)n$&k6c4up^*$!$6gtt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
 
 CUSTOM_APPS = [
     'apps.everest_user',
-    'apps.home'
+    'apps.home',
+    'apps.deal_tool'
 ]
 
 INSTALLED_APPS.extend(CUSTOM_APPS)
@@ -130,6 +131,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 
 AUTH_USER_MODEL = 'everest_user.User'
