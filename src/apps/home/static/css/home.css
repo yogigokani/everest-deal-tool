@@ -1,0 +1,30 @@
+body {
+	background-image: url("../img/cloud.jpg");
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+.home_text{
+	color: white;
+}
+.ui-autocomplete li:hover{
+	background-color: #337ab7;
+	color: white;
+}
+.ui-autocomplete a:hover,.ui-autocomplete a:active,.ui-widget-content a.ui-state-active{
+	background-color: #337ab7 !important;
+	color: white;
+	background: none !important;
+	border: none !important;
+	text-decoration: none;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+.ui-widget-content a.ui-menu-item-wrapper{
+	color: black;
+	padding: 0px !important;
+}
+.ui-autocomplete a{
+	padding: 0px !important;
+	border: none !important;
+	text-decoration: none;
+}
