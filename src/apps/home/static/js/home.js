@@ -41,7 +41,7 @@ $(document).ready(function(){
         createA.setAttribute('href', item.url);
         createA.appendChild(createAText);
 
-        return $( "<li class='abc'>" )
+        return $( "<li>" )
             .append( createA )
             .appendTo( ul );
     };
